@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/mitch/CLionProjects/jumblesolver/main.cpp
+iostream
+-
+curses.h
+-
+words.h
+C:/Users/mitch/CLionProjects/jumblesolver/words.h
+
+C:/Users/mitch/CLionProjects/jumblesolver/words.cpp
+words.h
+C:/Users/mitch/CLionProjects/jumblesolver/words.h
+
+C:/Users/mitch/CLionProjects/jumblesolver/words.h
+iostream
+-
+fstream
+-
+vector
+-
+string
+-
+chrono
+-
+memory
+-
+algorithm
+-
+
