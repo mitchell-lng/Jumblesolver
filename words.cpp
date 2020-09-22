@@ -38,7 +38,6 @@ void Words::sameLength()
 {
     cout << "Checking letters for length...";
     int i;
-    int j = 0;
     for (i = 0; i < _currentWords.size(); i++)
     {
         string word = _currentWords.at(i);
@@ -49,9 +48,6 @@ void Words::sameLength()
             i--;
             continue;
         }
-
-        getPercentage(j);
-        j++;
     }
 };
 

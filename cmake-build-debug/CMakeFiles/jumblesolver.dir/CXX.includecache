@@ -6,14 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/mitch/CLionProjects/jumblesolver/main.cpp
-iostream
--
-curses.h
--
-words.h
-C:/Users/mitch/CLionProjects/jumblesolver/words.h
-
 C:/Users/mitch/CLionProjects/jumblesolver/words.cpp
 words.h
 C:/Users/mitch/CLionProjects/jumblesolver/words.h
