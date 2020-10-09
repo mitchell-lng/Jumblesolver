@@ -4,11 +4,16 @@
 
 #include "words.h"
 
-double Words::getPercentage(int index)
+template<typename T>
+int Words::countLetters(char c, T s)
 {
-    float percentage = double(index) / double(_maxSize);
-    cout << "Index: " << index << "; Max List Size: " << _maxSize << "; Total Percentage: " << percentage << endl;
-    return percentage;
+    int counter = 0;
+
+    for (char currentLetter: s) {
+        if (currentLetter == c) counter++;
+    }
+
+    return counter;
 }
 
 void Words::readFile()
@@ -17,7 +22,7 @@ void Words::readFile()
     // http://www.mieliestronk.com/wordlist.html
 
     string line;
-    ifstream myFile("C:\\Users\\mitch\\CLionProjects\\jumblesolver\\words");
+    ifstream myFile("../words");
 
     if (myFile.is_open())
     {
@@ -51,10 +56,13 @@ void Words::sameLength()
     }
 };
 
+// Checks to see if the characters in the words match
 void Words::charMatch()
 {
     cout << endl << "Finalizing List..." << endl;
     int i;
+
+    // Check input from user against currentWord
     for (i = 0; i < _currentWords.size(); i++)
     {
         string word = _currentWords.at(i);
@@ -62,6 +70,41 @@ void Words::charMatch()
         {
             if (word.find(c) == string::npos)
             {
+                _currentWords.erase(_currentWords.begin() + i);
+                i--;
+                break;
+            }
+        }
+    }
+
+    // Check currentWord against input from user
+    for (i = 0; i < _currentWords.size(); i++)
+    {
+        string word = _currentWords.at(i);
+        for (char c: word)
+        {
+            if (find(_wordLetters.begin(), _wordLetters.end(), c) == _wordLetters.end())
+            {
+                _currentWords.erase(_currentWords.begin() + i);
+                i--;
+                break;
+            }
+        }
+    }
+
+    // Checks to make sure if there are duplicates, that they are the right ones
+    std::map<char, int> amountOfLetters;
+    for (char c: _wordLetters)
+    {
+        amountOfLetters[c] = countLetters(c, _wordLetters);
+    }
+
+    for (i = 0; i < _currentWords.size(); i++)
+    {
+        string word = _currentWords.at(i);
+        for (char c: word) {
+            int count = countLetters(c, word);
+            if (amountOfLetters[c] != count) {
                 _currentWords.erase(_currentWords.begin() + i);
                 i--;
                 break;

@@ -6,7 +6,11 @@
 using namespace std;
 
 int main() {
-    Words words("sogeo");
+    string input;
+    cout << "Enter in you word: ";
+    cin >> input;
+
+    Words words(input);
     words.init();
 
     return 0;

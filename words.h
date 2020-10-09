@@ -12,68 +12,18 @@
 #include <chrono>
 #include <memory>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
 class Words {
 public:
     explicit Words(string word) : _word(std::move(word)) {}
-    /*
-    ~Words() {
-        delete _currentWords;
-    };
-
-
-    Words(const Words &old) {
-        _word = old._word;
-        _wordLetters = old._wordLetters;
-
-        _currentWords = old._currentWords;
-        delete old._currentWords;
-    }
-
-    Words(const Words &&old) {
-        _word = old._word;
-        _wordLetters = old._wordLetters;
-
-        _currentWords = old._currentWords;
-        delete old._currentWords;
-    }
-
-    Words& operator=(const Words &old) {
-        if (&old != this)
-        {
-            _currentWords = old._currentWords;
-            delete old._currentWords;
-        }
-
-        _word = old._word;
-        _wordLetters = old._wordLetters;
-
-        return *this;
-    }
-
-    Words& operator=(const Words &&old) {
-        if (&old != this)
-        {
-            _currentWords = old._currentWords;
-            delete old._currentWords;
-        }
-
-        _word = old._word;
-        _wordLetters = old._wordLetters;
-
-        return *this;
-    }
-     */
 
     void init();
     void readFile();
     void sameLength();
     void charMatch();
-
-    int getWordsLeft() { return _currentWords.size(); }
-    double getPercentage(int index);
     void getFinalWords();
 
 private:
@@ -81,6 +31,9 @@ private:
     vector<string> _currentWords;
     vector<char> _wordLetters;
     string _word;
+
+    template<typename T>
+    int countLetters(char c, T s);
 };
 
 #endif //JUMBLESOLVER_WORDS_H
