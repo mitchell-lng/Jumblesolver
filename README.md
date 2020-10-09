@@ -4,22 +4,22 @@
 
 Example:
 
-'''bash
+```bash
 Enter in you word: kaaill
 Checking letters for length...
 Finalizing List...
 
 --> alkali
-'''
+```
 
 ## Build
 
-'''bash
+```bash
 mkdir build && cd build
 cmake ..
 make
 ./jumblesolver
-'''
+```
 
 ## Criteria
 
